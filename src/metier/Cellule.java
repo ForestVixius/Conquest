@@ -35,7 +35,7 @@ public class Cellule {
 
             //Cendres
             case Cellule.CENDRE : {
-                if (true) {
+                if (aleatoire.nextInt(15) == 0) {
                     etat = 2;
                 } else {
                     etat = 3;
@@ -61,7 +61,7 @@ public class Cellule {
             case Cellule.ARBRE : {
                 for (int i : this.voisins) {
                     if (i == 1) {
-                        if (aleatoire.nextInt(8) == 0) {
+                        if (aleatoire.nextInt(3) == 0) {
                             etat = 1;
                         } else {
                             etat = 4;
@@ -80,7 +80,7 @@ public class Cellule {
             case Cellule.SAPIN: {
                 for (int i : this.voisins) {
                     if (i == 1) {
-                        if (aleatoire.nextInt(15) == 0) {
+                        if (aleatoire.nextInt(8) == 0) {
                             etat = 1;
                         } else {
                             etat = 5;

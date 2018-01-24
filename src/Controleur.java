@@ -10,7 +10,7 @@ public class Controleur {
         System.out.println("Largeur de base : "+x+"px");
         x = 400;
         System.out.println("Hauteur de base : "+y+"px");
-        time = 1;
+        time = 10;
         System.out.println("Temps entre chaque itération : "+time+"ms");
 
 

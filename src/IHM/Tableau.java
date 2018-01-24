@@ -9,7 +9,7 @@ public class Tableau extends JPanel {
     private int x;
     private int y;
 
-    public Tableau(int x, int y, int[][] tabCellules) {
+    Tableau(int x, int y, int[][] tabCellules) {
         this.tabCellules = tabCellules;
         this.x = x/Fenetre.TAILLE_CELLULE;
         this.y = y/Fenetre.TAILLE_CELLULE;
