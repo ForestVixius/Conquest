@@ -24,8 +24,9 @@ public class Fenetre extends JFrame{
         pack();
         setVisible(true);
         setResizable(true);
-        setDefaultLookAndFeelDecorated(true);
+        setDefaultLookAndFeelDecorated(false);
         setSize(tailleY+20,tailleX+50);
+        setLocationRelativeTo(null);
 
     }
 

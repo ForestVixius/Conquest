@@ -15,12 +15,12 @@ public class Gestion {
     private int[] nouvCellule = new int[9];
 
     public Gestion(int tailleX, int tailleY) {
-        makeCells(tailleX,tailleY);
+        creerCellules(tailleX,tailleY);
         nouvX = tailleX/Fenetre.TAILLE_CELLULE;
         nouvY = tailleY/Fenetre.TAILLE_CELLULE;
     }
 
-    public void drawCells() {
+    public void dessinerCellules() {
         for (int i = 0; i < nouvX; i++) {
             for (int j = 0; j < nouvY; j++) {
 
@@ -81,14 +81,14 @@ public class Gestion {
     public void GameTimer(int timeTime) {
         TimerTask task = new TimerTask() {
             public void run() {
-                drawCells();
+                dessinerCellules();
             }
         };
         java.util.Timer timer = new Timer();
         timer.schedule(task,0,timeTime);
     }
 
-    public void makeCells(int arrayX, int arrayY) {
+    public void creerCellules(int arrayX, int arrayY) {
 
         Random rand = new Random();
 
