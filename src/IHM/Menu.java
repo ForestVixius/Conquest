@@ -27,40 +27,40 @@ public class Menu extends JFrame implements ActionListener {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
-        setSize(700, 500);
+        setSize(350, 400);
         setLocationRelativeTo(null);
         Insets insets = this.getInsets();
 
-        JLabel textLarg = new JLabel("Largeur");
-        textLarg.setBounds(400,5,50,20);
-        add(textLarg);
-        jLargeur = new JTextField("500");
-        jLargeur.addActionListener(this);
-        jLargeur.setBounds(400, 25, 200, 50);
-        add(jLargeur);
-
-        JLabel textHaut = new JLabel("Hauteur");
-        textHaut.setBounds(25,5,50,20);
+        JLabel textHaut = new JLabel("Hauteur :");
+        textHaut.setBounds(155,20,70,20);
         add(textHaut);
         jHauteur = new JTextField("500");
         jHauteur.addActionListener(this);
-        jHauteur.setBounds(25, 25, 200, 50);
+        jHauteur.setBounds(125, 45, 100, 30);
         add(jHauteur);
 
-        JLabel textTimer = new JLabel("Timer");
-        textTimer.setBounds(250,80,50,20);
+        JLabel textLarg = new JLabel("Largeur :");
+        textLarg.setBounds(155,90,70,20);
+        add(textLarg);
+        jLargeur = new JTextField("500");
+        jLargeur.addActionListener(this);
+        jLargeur.setBounds(125, 110, 100, 30);
+        add(jLargeur);
+
+        JLabel textTimer = new JLabel("Timer :");
+        textTimer.setBounds(155,155,70,20);
         add(textTimer);
         jTimer = new JTextField("10");
         jTimer.addActionListener(this);
-        jTimer.setBounds(250, 100, 200, 50);
+        jTimer.setBounds(125, 175, 100, 30);
         add(jTimer);
 
-        forest = new JButton("Lancer : \"Forêt en feu\"");
+        forest = new JButton("Lancer la simulation");
 
         forest.addActionListener(this);
         forest.setVerticalTextPosition(AbstractButton.BOTTOM);
         forest.setHorizontalTextPosition(AbstractButton.CENTER);
-        forest.setBounds(200, 300, 300, 100);
+        forest.setBounds(85, 240, 180, 50);
         add(forest);
 
 
