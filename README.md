@@ -18,4 +18,5 @@ pour les pins.
   
 Ainsi le feu va se répendre sur toute la forêt, laissant des cendres sur son passage qui redevienne du sol sur lequel 
 un arbre pourra pousser.
-  
+
+Après un certain temps la forêt aura bien repousser, mais un nouvel éclair ira mettre le feu pour que tout brûle à nouveau. Ainsi de suite.
