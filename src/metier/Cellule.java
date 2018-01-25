@@ -1,5 +1,7 @@
 package metier;
 
+import javafx.scene.control.Cell;
+
 import java.util.Random;
 
 public class Cellule {
@@ -25,9 +27,9 @@ public class Cellule {
             case Cellule.FEU : {
                 for (int i : this.voisins) {
                     if (aleatoire.nextInt(3) == 0) {
-                        etat = 2;
+                        etat = Cellule.CENDRE;
                     } else {
-                        etat = 1;
+                        etat = Cellule.FEU;
                     }
                 }
                 break;
@@ -36,9 +38,9 @@ public class Cellule {
             //Cendres
             case Cellule.CENDRE : {
                 if (aleatoire.nextInt(15) == 0) {
-                    etat = 2;
+                    etat = Cellule.CENDRE;
                 } else {
-                    etat = 3;
+                    etat = Cellule.SOL;
                 }
                 break;
             }
@@ -47,12 +49,12 @@ public class Cellule {
             case Cellule.SOL : {
                 if (aleatoire.nextInt(200) == 0) {
                     if (aleatoire.nextInt(5) == 0) {
-                        etat = 5;
+                        etat = Cellule.SAPIN;
                     } else {
-                        etat = 4;
+                        etat = Cellule.ARBRE;
                     }
                 } else {
-                    etat = 3;
+                    etat = Cellule.SOL;
                 }
                 break;
             }
@@ -62,15 +64,15 @@ public class Cellule {
                 for (int i : this.voisins) {
                     if (i == 1) {
                         if (aleatoire.nextInt(3) == 0) {
-                            etat = 1;
+                            etat = Cellule.FEU;
                         } else {
-                            etat = 4;
+                            etat = Cellule.ARBRE;
                         }
                     }
                 }
 
                 if (aleatoire.nextInt(100000) == 0) {
-                    etat = 1;
+                    etat = Cellule.FEU;
                 }
 
                 break;
@@ -81,15 +83,15 @@ public class Cellule {
                 for (int i : this.voisins) {
                     if (i == 1) {
                         if (aleatoire.nextInt(8) == 0) {
-                            etat = 1;
+                            etat = Cellule.FEU;
                         } else {
-                            etat = 5;
+                            etat = Cellule.SAPIN;
                         }
                     }
                 }
 
                 if (aleatoire.nextInt(100000) == 0) {
-                    etat = 1;
+                    etat = Cellule.FEU;
                 }
 
                 break;
