@@ -121,5 +121,4 @@ public class Gestion {
     public int[][] getTabCellules() {
         return tabCellules;
     }
-
 }
