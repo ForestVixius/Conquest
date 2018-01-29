@@ -8,6 +8,8 @@ import java.util.TimerTask;
 
 public class Gestion {
 
+    private TimerTask task;
+
     private int[][] tabCellules;
     private int nouvX;
     private int nouvY;
@@ -78,14 +80,26 @@ public class Gestion {
         }
     }
 
-    public void GameTimer(int timeTime) {
-        TimerTask task = new TimerTask() {
+    public void lancerTimer(int temps) {
+        task = new TimerTask() {
             public void run() {
                 dessinerCellules();
             }
         };
         java.util.Timer timer = new Timer();
-        timer.schedule(task,0,timeTime);
+        timer.schedule(task,0,temps);
+    }
+
+    public void pauseTimer() {
+        task.cancel();
+    }
+
+    public void avancer10Fois(int time) {
+        for (int i = 0; i < 10; i++) {
+            dessinerCellules();
+            System.out.print(i);
+            try { Thread.sleep(time); } catch (Exception e){}
+        }
     }
 
     public void creerCellules(int arrayX, int arrayY) {

@@ -26,6 +26,7 @@ public class Tableau extends JPanel {
         for (int i = 0; i < this.x; i++) {
             for (int j = 0; j < this.y; j++) {
                 if (tabCellules[i][j] == Cellule.FEU)    { g.setColor(Color.red);              }
+                if (tabCellules[i][j] == Cellule.FEUM)   { g.setColor(new Color(255,149,0));           }
                 if (tabCellules[i][j] == Cellule.CENDRE) { g.setColor(Color.gray);             }
                 if (tabCellules[i][j] == Cellule.SOL)    { g.setColor(Color.white);            }
                 if (tabCellules[i][j] == Cellule.ARBRE)  { g.setColor(Color.green);            }

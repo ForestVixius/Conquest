@@ -7,6 +7,7 @@ import java.util.Random;
 public class Cellule {
 
     public static final int    FEU = 1;
+    public static final int   FEUM = 0;
     public static final int CENDRE = 2;
     public static final int    SOL = 3;
     public static final int  ARBRE = 4;
@@ -27,7 +28,7 @@ public class Cellule {
             case Cellule.FEU : {
                 for (int i : this.voisins) {
                     if (aleatoire.nextInt(3) == 0) {
-                        etat = Cellule.CENDRE;
+                        etat = Cellule.FEUM;
                     } else {
                         etat = Cellule.FEU;
                     }
@@ -35,9 +36,21 @@ public class Cellule {
                 break;
             }
 
+            case Cellule.FEUM : {
+                for (int i : this.voisins) {
+                    if (aleatoire.nextInt(3) == 0) {
+                        etat = Cellule.CENDRE;
+                    } else {
+                        etat = Cellule.FEUM;
+                    }
+                }
+                break;
+            }
+
+
             //Cendres
             case Cellule.CENDRE : {
-                if (aleatoire.nextInt(15) == 0) {
+                if (aleatoire.nextInt(3) == 0) {
                     etat = Cellule.CENDRE;
                 } else {
                     etat = Cellule.SOL;
@@ -62,8 +75,8 @@ public class Cellule {
             //Arbre
             case Cellule.ARBRE : {
                 for (int i : this.voisins) {
-                    if (i == 1) {
-                        if (aleatoire.nextInt(3) == 0) {
+                    if (i == Cellule.FEU || i == Cellule.FEUM) {
+                        if (aleatoire.nextInt(5) == 0) {
                             etat = Cellule.FEU;
                         } else {
                             etat = Cellule.ARBRE;
@@ -81,8 +94,8 @@ public class Cellule {
             //Sapin
             case Cellule.SAPIN: {
                 for (int i : this.voisins) {
-                    if (i == 1) {
-                        if (aleatoire.nextInt(8) == 0) {
+                    if (i == Cellule.FEU || i == Cellule.FEUM) {
+                        if (aleatoire.nextInt(12) == 0) {
                             etat = Cellule.FEU;
                         } else {
                             etat = Cellule.SAPIN;
