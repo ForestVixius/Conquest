@@ -22,7 +22,7 @@ public class Fenetre extends JFrame implements ActionListener{
     private Gestion g;
 
     public Fenetre(int tailleX, int tailleY, int time) {
-        super("Forêt en feu");
+        super("Forest destructor");
         super.frameInit();
         g = new Gestion(tailleX,tailleY);
         this.time = time;
@@ -36,7 +36,7 @@ public class Fenetre extends JFrame implements ActionListener{
         jPausePlay.addActionListener(this);
         jSuivant   = new JButton("Avancer de 1 étape");
         jSuivant.addActionListener(this);
-        jSuivantDix= new JButton("Avancer de 10 étape");
+        jSuivantDix= new JButton("Avancer de 10 étapes");
         jSuivantDix.addActionListener(this);
 
         panelBas.add(jPausePlay);
@@ -87,7 +87,7 @@ public class Fenetre extends JFrame implements ActionListener{
             g.avancer10Fois(time);
             try {
                 setEnabled(false);
-                Thread.sleep(time*11);
+                Thread.sleep(time);
                 setEnabled(true);
             } catch (Exception ex){}
         }

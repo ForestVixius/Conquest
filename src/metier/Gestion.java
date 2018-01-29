@@ -97,8 +97,6 @@ public class Gestion {
     public void avancer10Fois(int time) {
         for (int i = 0; i < 10; i++) {
             dessinerCellules();
-            System.out.print(i);
-            try { Thread.sleep(time); } catch (Exception e){}
         }
     }
 

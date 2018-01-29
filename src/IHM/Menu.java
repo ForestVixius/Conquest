@@ -22,7 +22,7 @@ public class Menu extends JFrame implements ActionListener {
     private JTextField jTimer;
 
     public Menu() {
-        super("Forêt en feu");
+        super("Forest destructor");
         super.frameInit();
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,7 +50,7 @@ public class Menu extends JFrame implements ActionListener {
         JLabel textTimer = new JLabel("Timer :");
         textTimer.setBounds(155,155,70,20);
         add(textTimer);
-        jTimer = new JTextField("10");
+        jTimer = new JTextField("50");
         jTimer.addActionListener(this);
         jTimer.setBounds(125, 175, 100, 30);
         add(jTimer);
