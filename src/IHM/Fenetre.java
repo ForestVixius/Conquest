@@ -21,6 +21,9 @@ public class Fenetre extends JFrame implements ActionListener, MouseListener, Mo
     private int clickY = -1;
     private int clickX  = -1;
 
+    private int tailleX;
+    private int tailleY;
+
     private int[][] tabCellules;
     int time;
     private Gestion g;
@@ -28,6 +31,10 @@ public class Fenetre extends JFrame implements ActionListener, MouseListener, Mo
     public Fenetre(int tailleX, int tailleY, int time) {
         super("Forest destructor");
         super.frameInit();
+
+        this.tailleX = tailleX;
+        this.tailleY = tailleY;
+
         g = new Gestion(tailleX,tailleY);
         this.tableauGraphique = new Tableau(tailleX, tailleY,g.getTabCellules());
         add(tableauGraphique);
@@ -115,10 +122,20 @@ public class Fenetre extends JFrame implements ActionListener, MouseListener, Mo
         //}
     }
 
-    public void mouseDragged(MouseEvent e) {}
+    public void mouseDragged(MouseEvent e) {
+        if (SwingUtilities.isLeftMouseButton(e)) {
+            if ((e.getX()>0&&e.getX()<tailleX)&&(e.getY()>0&&e.getY()<tailleY)) {
+                clickX = (int) Math.ceil((double) e.getX() / TAILLE_CELLULE) - 1;
+                clickY = (int) Math.ceil((double) e.getY() / TAILLE_CELLULE) - 1;
+                //System.out.println("click  " + clickX + ":" + clickY + " = " + e.getX() + ":" + e.getY());
+                g.setCellule(clickX, clickY, tableauGraphique);
+            }
+        }
+    }
+
+
 
     public void mouseClicked(MouseEvent e) {}
-
     public void mouseReleased(MouseEvent e) {}
     public void mouseEntered(MouseEvent e) {}
     public void mouseExited(MouseEvent e) {}

@@ -12,6 +12,7 @@ public class Cellule {
     public static final int    SOL = 3;
     public static final int  ARBRE = 4;
     public static final int  SAPIN = 5;
+    public static final int  EAU   = 6;
 
     private int[] voisins;
     private int etat;
@@ -23,6 +24,12 @@ public class Cellule {
         Random aleatoire = new Random();
 
         switch (etat) {
+
+            // Eau
+            case Cellule.EAU : {
+                etat = Cellule.EAU;
+                break;
+            }
 
             //En feu
             case Cellule.FEU : {

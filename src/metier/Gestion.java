@@ -120,8 +120,8 @@ public class Gestion {
     }
 
     public void setCellule(int x, int y, Tableau t) {
-        tabCellules[x][y] = 0;
-        t.peindreCellule(x,y);
+        tabCellules[y][x] = 6;
+        //t.peindreCellule(x,y);
 
     }
 

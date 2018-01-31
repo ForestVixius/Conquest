@@ -25,7 +25,7 @@ public class Tableau extends JPanel {
 
         for (int i = 0; i < this.x; i++) {
             for (int j = 0; j < this.y; j++) {
-                if (tabCellules[i][j] == Cellule.FEU)    { g.setColor(Color.red);              }
+                if (tabCellules[i][j] == Cellule.EAU)    { g.setColor(Color.blue);              }
                 if (tabCellules[i][j] == Cellule.FEU)    { g.setColor(Color.red);              }
                 if (tabCellules[i][j] == Cellule.FEUM)   { g.setColor(new Color(255,149,0));           }
                 if (tabCellules[i][j] == Cellule.CENDRE) { g.setColor(Color.gray);             }
@@ -43,7 +43,7 @@ public class Tableau extends JPanel {
     public void peindreCellule(int x, int y) {
         this.getGraphics().setColor(Color.blue);
         System.out.println("click  "+x+":"+y+" = "+x*Fenetre.TAILLE_CELLULE+":"+y*Fenetre.TAILLE_CELLULE);
-        this.getGraphics().fill3DRect(x*Fenetre.TAILLE_CELLULE, y*Fenetre.TAILLE_CELLULE, Fenetre.TAILLE_CELLULE,Fenetre.TAILLE_CELLULE, true);
+        this.getGraphics().fill3DRect(y*Fenetre.TAILLE_CELLULE, x*Fenetre.TAILLE_CELLULE, Fenetre.TAILLE_CELLULE,Fenetre.TAILLE_CELLULE, true);
         repaint();
     }
 }
