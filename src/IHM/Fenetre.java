@@ -112,25 +112,24 @@ public class Fenetre extends JFrame implements ActionListener, MouseListener, Mo
 
     public void mousePressed(MouseEvent e) {
         //if (!this.enPause) {} else {
-            if (e.getButton() == MouseEvent.BUTTON1) {
-
                 clickX = (int) Math.ceil((double)e.getX() / TAILLE_CELLULE)-1;
                 clickY =(int) Math.ceil((double)e.getY() / TAILLE_CELLULE )-1;
                 //System.out.println("click  "+clickX+":"+clickY+" = "+e.getX()+":"+e.getY());
-                g.setCellule(clickX,clickY, tableauGraphique);
-            }
+                if (SwingUtilities.isLeftMouseButton(e)) { g.setCellule(clickX, clickY, 6); }
+                if (SwingUtilities.isRightMouseButton(e)) { g.setCellule(clickX, clickY, 4); }
+                if (SwingUtilities.isMiddleMouseButton(e)) { g.setCellule(clickX, clickY, 1); }
         //}
     }
 
     public void mouseDragged(MouseEvent e) {
-        if (SwingUtilities.isLeftMouseButton(e)) {
+
             if ((e.getX()>0&&e.getX()<tailleX)&&(e.getY()>0&&e.getY()<tailleY)) {
                 clickX = (int) Math.ceil((double) e.getX() / TAILLE_CELLULE) - 1;
                 clickY = (int) Math.ceil((double) e.getY() / TAILLE_CELLULE) - 1;
                 //System.out.println("click  " + clickX + ":" + clickY + " = " + e.getX() + ":" + e.getY());
-                g.setCellule(clickX, clickY, tableauGraphique);
+                if (SwingUtilities.isLeftMouseButton(e)) { g.setCellule(clickX, clickY, 6); }
+                if (SwingUtilities.isRightMouseButton(e)) { g.setCellule(clickX, clickY, 4); }
             }
-        }
     }
 
 

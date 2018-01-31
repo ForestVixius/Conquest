@@ -17,6 +17,7 @@ public class Menu extends JFrame implements ActionListener {
     private int time;
 
     private JButton forest;
+    private JButton options;
     private JTextField jLargeur;
     private JTextField jHauteur;
     private JTextField jTimer;
@@ -63,6 +64,14 @@ public class Menu extends JFrame implements ActionListener {
         forest.setBounds(85, 240, 180, 50);
         add(forest);
 
+        options = new JButton("Options");
+
+        options.addActionListener(this);
+        options.setVerticalTextPosition(AbstractButton.BOTTOM);
+        options.setHorizontalTextPosition(AbstractButton.CENTER);
+        options.setBounds(125, 310, 100, 30);
+        add(options);
+
 
         setVisible(true);
     }
@@ -83,29 +92,34 @@ public class Menu extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        int x =     Integer.parseInt(jHauteur.getText());
-        int y =     Integer.parseInt(jLargeur.getText());
-        int timer = Integer.parseInt(jTimer.getText());
-        boolean error = false;
+        if (forest.equals(e.getSource())) {
+            Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+            int x =     Integer.parseInt(jHauteur.getText());
+            int y =     Integer.parseInt(jLargeur.getText());
+            int timer = Integer.parseInt(jTimer.getText());
+            boolean error = false;
+            if ( (x > dim.getHeight()-150) || (x < 20)) {
+                JOptionPane.showMessageDialog(null, ("Mauvaise hauteur, veuilez choisir entre 20 et "+(dim.getHeight()-150)+"px"));
+                error = true;
+            }
+            else
+            if ( (y > dim.getWidth()-150) || (y < 20))  {
+                JOptionPane.showMessageDialog(null, ("Mauvaise largeur, veuilez choisir entre 20 et "+(dim.getHeight()-150)+"px"));
+                error = true;
+            }
 
-        if ( (x > dim.getHeight()-150) || (x < 20)) {
-            JOptionPane.showMessageDialog(null, ("Mauvaise hauteur, veuilez choisir entre 20 et "+(dim.getHeight()-150)+"px"));
-            error = true;
+            System.out.println("Largeur de base : "+x+"px");
+            System.out.println("Hauteur de base : "+y+"px");
+            System.out.println("Temps entre chaque itération : "+timer+"ms");
+
+            if (!error) {
+                new Fenetre(x,y,timer);
+                dispose();
+            }
         }
-        else
-        if ( (y > dim.getWidth()-150) || (y < 20))  {
-            JOptionPane.showMessageDialog(null, ("Mauvaise largeur, veuilez choisir entre 20 et "+(dim.getHeight()-150)+"px"));
-            error = true;
-        }
 
-        System.out.println("Largeur de base : "+x+"px");
-        System.out.println("Hauteur de base : "+y+"px");
-        System.out.println("Temps entre chaque itération : "+timer+"ms");
-
-        if (!error) {
-            new Fenetre(x,y,timer);
-            dispose();
+        if (options.equals(e.getSource())) {
+            new Options();
         }
 
 

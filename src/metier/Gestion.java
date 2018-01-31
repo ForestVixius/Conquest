@@ -119,10 +119,8 @@ public class Gestion {
         }
     }
 
-    public void setCellule(int x, int y, Tableau t) {
-        tabCellules[y][x] = 6;
-        //t.peindreCellule(x,y);
-
+    public void setCellule(int x, int y, int type) {
+        tabCellules[y][x] = type;
     }
 
     public int[][] getTabCellules() {
