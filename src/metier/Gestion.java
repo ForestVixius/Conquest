@@ -1,6 +1,7 @@
 package metier;
 
-import IHM.Fenetre;
+import IHM.*;
+import javafx.scene.control.Tab;
 
 import java.util.Random;
 import java.util.Timer;
@@ -9,6 +10,8 @@ import java.util.TimerTask;
 public class Gestion {
 
     private TimerTask task;
+
+    private Tableau t;
 
     private int[][] tabCellules;
     private int nouvX;
@@ -114,6 +117,12 @@ public class Gestion {
                 tabCellules[i][j] = rand.nextInt(2)+4;
             }
         }
+    }
+
+    public void setCellule(int x, int y, Tableau t) {
+        tabCellules[x][y] = 0;
+        t.peindreCellule(x,y);
+
     }
 
     public int[][] getTabCellules() {

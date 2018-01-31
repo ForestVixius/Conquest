@@ -5,17 +5,21 @@ import metier.Gestion;
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
-public class Fenetre extends JFrame implements ActionListener{
+public class Fenetre extends JFrame implements ActionListener, MouseListener, MouseMotionListener{
 
     public static final int TAILLE_CELLULE = 10;
+    public boolean enPause = true;
+
+    private Tableau tableauGraphique;
 
     private JButton jPausePlay;
     private JButton jSuivant;
     private JButton jSuivantDix;
+
+    private int clickY = -1;
+    private int clickX  = -1;
 
     private int[][] tabCellules;
     int time;
@@ -25,9 +29,13 @@ public class Fenetre extends JFrame implements ActionListener{
         super("Forest destructor");
         super.frameInit();
         g = new Gestion(tailleX,tailleY);
+        this.tableauGraphique = new Tableau(tailleX, tailleY,g.getTabCellules());
+        add(tableauGraphique);
         this.time = time;
 
-        add(new Tableau(tailleX, tailleY,g.getTabCellules()));
+        tableauGraphique.addMouseListener(this);
+        tableauGraphique.addMouseMotionListener(this);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panelBas = new JPanel(new GridLayout(1,3));
@@ -43,9 +51,8 @@ public class Fenetre extends JFrame implements ActionListener{
         panelBas.add(jSuivant);
         panelBas.add(jSuivantDix);
 
-
-
         add(panelBas, BorderLayout.SOUTH);
+
 
         pack();
         setVisible(true);
@@ -71,9 +78,11 @@ public class Fenetre extends JFrame implements ActionListener{
         if (command == jPausePlay) {
             if (jPausePlay.getText().equals("Pause")) {
                 jPausePlay.setText("Mise en route");
+                this.enPause = true;
                 g.pauseTimer();
             } else {
                 jPausePlay.setText("Pause");
+                this.enPause = false;
                 g.lancerTimer(this.time);
             }
 
@@ -92,4 +101,27 @@ public class Fenetre extends JFrame implements ActionListener{
             } catch (Exception ex){}
         }
     }
+
+
+    public void mousePressed(MouseEvent e) {
+        //if (!this.enPause) {} else {
+            if (e.getButton() == MouseEvent.BUTTON1) {
+
+                clickX = (int) Math.ceil((double)e.getX() / TAILLE_CELLULE)-1;
+                clickY =(int) Math.ceil((double)e.getY() / TAILLE_CELLULE )-1;
+                //System.out.println("click  "+clickX+":"+clickY+" = "+e.getX()+":"+e.getY());
+                g.setCellule(clickX,clickY, tableauGraphique);
+            }
+        //}
+    }
+
+    public void mouseDragged(MouseEvent e) {}
+
+    public void mouseClicked(MouseEvent e) {}
+
+    public void mouseReleased(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
+
+    public void mouseMoved(MouseEvent e) {}
 }
