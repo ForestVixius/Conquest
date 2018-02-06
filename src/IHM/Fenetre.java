@@ -9,7 +9,7 @@ import java.awt.event.*;
 
 public class Fenetre extends JFrame implements ActionListener, MouseListener, MouseMotionListener{
 
-    public static final int TAILLE_CELLULE = 10;
+    public static final int TAILLE_CELLULE = 5;
     public boolean enPause = true;
 
     private Tableau tableauGraphique;

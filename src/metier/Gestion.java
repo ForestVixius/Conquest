@@ -3,6 +3,9 @@ package metier;
 import IHM.*;
 import javafx.scene.control.Tab;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -81,6 +84,33 @@ public class Gestion {
                 }
             }
         }
+    }
+
+    public int[][] tabMonde () {
+        try {
+            BufferedImage img = ImageIO.read(new File("res/world-map.png"));
+            System.out.println("Image chargée");
+
+
+            System.out.println("Taille px : " + (img.getWidth()) +":" +(img.getHeight()));
+            System.out.println("Taille px : " + (img.getWidth()/5) +":" +(img.getHeight()/5));
+
+            int[][] tabImg = new int[img.getWidth()/5][img.getHeight()/5];
+            for (int x = 0; x < (img.getWidth()/5); x++) {
+                for (int y = 0; y < 208; y++) {
+                    //System.out.println("pos : " + x+":"+y+ " --- "+ 5*x+":"+y*5 );
+                    if (img.getRGB((x*5),(y*5)) == -1) {
+                        tabImg[x][y] = 0;
+                    } else {
+                        tabImg[x][y] = 1;
+                    }
+
+                }
+                System.out.println("yo");
+            }
+            return tabImg;
+        } catch (Exception e){System.out.println(e);}
+        return null;
     }
 
     public void lancerTimer(int temps) {

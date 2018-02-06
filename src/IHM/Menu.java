@@ -28,32 +28,32 @@ public class Menu extends JFrame implements ActionListener {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
-        setSize(350, 400);
+        setSize(300, 400);
         setLocationRelativeTo(null);
         Insets insets = this.getInsets();
 
         JLabel textHaut = new JLabel("Hauteur :");
-        textHaut.setBounds(155,20,70,20);
+        textHaut.setBounds(125,20,70,20);
         add(textHaut);
         jHauteur = new JTextField("500");
         jHauteur.addActionListener(this);
-        jHauteur.setBounds(125, 45, 100, 30);
+        jHauteur.setBounds(100, 45, 100, 30);
         add(jHauteur);
 
         JLabel textLarg = new JLabel("Largeur :");
-        textLarg.setBounds(155,90,70,20);
+        textLarg.setBounds(125,90,70,20);
         add(textLarg);
         jLargeur = new JTextField("500");
         jLargeur.addActionListener(this);
-        jLargeur.setBounds(125, 110, 100, 30);
+        jLargeur.setBounds(100, 110, 100, 30);
         add(jLargeur);
 
         JLabel textTimer = new JLabel("Timer :");
-        textTimer.setBounds(155,155,70,20);
+        textTimer.setBounds(125,155,70,20);
         add(textTimer);
         jTimer = new JTextField("50");
         jTimer.addActionListener(this);
-        jTimer.setBounds(125, 175, 100, 30);
+        jTimer.setBounds(100, 175, 100, 30);
         add(jTimer);
 
         forest = new JButton("Lancer la simulation");
@@ -61,16 +61,16 @@ public class Menu extends JFrame implements ActionListener {
         forest.addActionListener(this);
         forest.setVerticalTextPosition(AbstractButton.BOTTOM);
         forest.setHorizontalTextPosition(AbstractButton.CENTER);
-        forest.setBounds(85, 240, 180, 50);
+        forest.setBounds(60, 240, 180, 50);
         add(forest);
 
-        options = new JButton("Options");
+        /*options = new JButton("Options");
 
         options.addActionListener(this);
         options.setVerticalTextPosition(AbstractButton.BOTTOM);
         options.setHorizontalTextPosition(AbstractButton.CENTER);
         options.setBounds(125, 310, 100, 30);
-        add(options);
+        add(options);*/
 
 
         setVisible(true);
@@ -104,7 +104,7 @@ public class Menu extends JFrame implements ActionListener {
             }
             else
             if ( (y > dim.getWidth()-150) || (y < 20))  {
-                JOptionPane.showMessageDialog(null, ("Mauvaise largeur, veuilez choisir entre 20 et "+(dim.getHeight()-150)+"px"));
+                JOptionPane.showMessageDialog(null, ("Mauvaise largeur, veuilez choisir entre 20 et "+(dim.getWidth()-150)+"px"));
                 error = true;
             }
 
@@ -118,9 +118,9 @@ public class Menu extends JFrame implements ActionListener {
             }
         }
 
-        if (options.equals(e.getSource())) {
+        /*if (options.equals(e.getSource())) {
             new Options();
-        }
+        }*/
 
 
     }

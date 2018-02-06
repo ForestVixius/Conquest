@@ -33,7 +33,7 @@ public class Tableau extends JPanel {
                 if (tabCellules[i][j] == Cellule.ARBRE)  { g.setColor(Color.green);            }
                 if (tabCellules[i][j] == Cellule.SAPIN)  { g.setColor((Color.green).darker()); }
 
-                g.fill3DRect(j*Fenetre.TAILLE_CELLULE, i*Fenetre.TAILLE_CELLULE, Fenetre.TAILLE_CELLULE,Fenetre.TAILLE_CELLULE, true);
+                g.fillRect(j*Fenetre.TAILLE_CELLULE, i*Fenetre.TAILLE_CELLULE, Fenetre.TAILLE_CELLULE,Fenetre.TAILLE_CELLULE);
             }
         }
 
