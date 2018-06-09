@@ -1,5 +1,7 @@
 # Conquest
 
+## CONQUEST JAVA EST ARRÊTÉ ET A ÉTÉ REPRIS EN JAVASCRIPT SUR LE REPO CONQUEST.JS
+
 ### Présentation
 
 __Conquest__ est un petit projet que je mène sur les automates cellulaires. Il va passer par plusieurs étapes de test mais le __but 
